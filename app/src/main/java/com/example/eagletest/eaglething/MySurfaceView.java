@@ -3,6 +3,7 @@ package com.example.eagletest.eaglething;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -23,6 +24,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         //canvas.drawCircle();
         //canvas.drawColor(Color.BLUE);
         //canvas.drawBitmap(myChar, 10, 10, null);
+        canvas.drawColor(Color.BLUE);
     }
 
     /**
@@ -36,7 +38,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
      */
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
+        Canvas canvas = holder.lockCanvas(null);
+        onDraw(canvas);
+        holder.unlockCanvasAndPost(canvas);
     }
 
     /**

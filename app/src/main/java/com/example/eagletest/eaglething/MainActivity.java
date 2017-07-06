@@ -8,6 +8,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        MySurfaceView mySurfaceView = new MySurfaceView(this);
+        setContentView(mySurfaceView);
+        //setContentView(R.layout.activity_main);
     }
 }
