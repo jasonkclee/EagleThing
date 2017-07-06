@@ -5,5 +5,14 @@ package com.example.eagletest.eaglething;
  */
 
 public class Testing {
+    public Testing(){
+        /*
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+        dlgAlert.setMessage("This is an alert with no consequence");
+        dlgAlert.setTitle("App Title");
+        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();*/
+    }
+
 
 }
