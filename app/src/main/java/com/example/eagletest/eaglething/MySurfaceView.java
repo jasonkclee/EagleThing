@@ -1,7 +1,10 @@
 package com.example.eagletest.eaglething;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.view.SurfaceHolder;
@@ -17,14 +20,14 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         super(context);
         SurfaceHolder surfaceHolder = getHolder();
         surfaceHolder.addCallback(this);
+        myChar = BitmapFactory.decodeResource(getResources(), R.drawable.greencircle);
     }
 
+    private Bitmap myChar;
     @Override
     protected void onDraw(Canvas canvas){
-        //canvas.drawCircle();
-        //canvas.drawColor(Color.BLUE);
-        //canvas.drawBitmap(myChar, 10, 10, null);
         canvas.drawColor(Color.BLUE);
+        canvas.drawBitmap(myChar, 10, 10, null);
     }
 
     /**
@@ -36,6 +39,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
      *
      * @param holder The SurfaceHolder whose surface is being created.
      */
+    @SuppressLint("WrongCall")
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Canvas canvas = holder.lockCanvas(null);
