@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -27,7 +28,25 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     @Override
     protected void onDraw(Canvas canvas){
         canvas.drawColor(Color.BLUE);
-        canvas.drawBitmap(myChar, 10, 10, null);
+
+
+        Matrix matrix = new Matrix();
+
+        /*
+        Image img = new Image(R.drawable.greencircle, getResources());
+
+        img.setSize(canvas.getWidth()/4);
+        img.setRotation(90);
+        img.setTRanl
+        img.draw(canvas);
+        */
+
+        matrix.setTranslate(-myChar.getWidth()/2, -myChar.getHeight()/2); //translate to center
+        matrix.postScale(0.5f, 0.5f);
+        matrix.postRotate(30); //USING POST MEANS THAT THE ORDER IS CORRECT: this code rotates, then translates
+        matrix.postTranslate(canvas.getWidth()/2, canvas.getHeight()/2);
+        //matrix.postTranslate(canvas.getWidth()-myChar.getWidth()/2*0.5f, canvas.getHeight() - myChar.getHeight()/2 * 0.5f);
+        canvas.drawBitmap(myChar, matrix, null);
     }
 
     /**
