@@ -89,19 +89,6 @@ public class MySurfaceView extends SurfaceView implements  Runnable{
             }
         }
     }
-/*
-    @Override
-    protected void onDraw(Canvas canvas){
-        canvas.drawColor(Color.BLUE);
-        Matrix matrix = new Matrix();
-        x++;
-        matrix.setTranslate(-myChar.getWidth()/2, -myChar.getHeight()/2); //translate to center
-        matrix.postScale(0.5f, 0.5f);
-        matrix.postRotate(30); //USING POST MEANS THAT THE ORDER IS CORRECT: this code rotates, then translates
-        matrix.postTranslate(x, canvas.getHeight()/2);
-        //matrix.postTranslate(canvas.getWidth()-myChar.getWidth()/2*0.5f, canvas.getHeight() - myChar.getHeight()/2 * 0.5f);
-        canvas.drawBitmap(myChar, matrix, null);
-    }*/
 
 
 }

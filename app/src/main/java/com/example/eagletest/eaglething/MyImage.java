@@ -12,14 +12,9 @@ import android.graphics.drawable.Drawable;
  */
 
 public class MyImage {
-
     private Bitmap img;
     private Matrix matrix;
     private float scale, translateX, translateY, rotation;
-
-    //pull asdfalsdkfj
-    //asdjfasldkfjlkjsadfj
-
 
     public MyImage(int id, Resources res) {
         img = BitmapFactory.decodeResource(res, id);
