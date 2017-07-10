@@ -48,4 +48,26 @@ public class MyImage {
     public void setRotation(float rot) {
         rotation = rot;
     }
+
+    public float getRotation() {
+        return rotation;
+    }
+
+    public float getTranslateX() {
+        return translateX;
+    }
+
+    public float getTranslateY() {
+        return translateY;
+    }
+
+    public float getSize(){
+        if (img.getWidth() > img.getHeight()) {
+            return  scale * img.getWidth();
+            //scale = size / img.getWidth();
+        } else {
+            return  scale * img.getHeight();
+            //scale = size / img.getHeight();
+        }
+    }
 }

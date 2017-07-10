@@ -23,15 +23,19 @@ public class MySurfaceView extends SurfaceView implements  Runnable{
     private Thread gameThread;
     public volatile boolean isRunning;
 
-    private Bitmap myChar;
+    //private Bitmap myChar;
+    private MyImage myChar;
     float x = 0;
 
     public MySurfaceView(Context context) {
         super(context);
-        myChar = BitmapFactory.decodeResource(getResources(), R.drawable.greencircle);
-        //initializing drawing objects
         surfaceHolder = getHolder();
         paint = new Paint();
+        myChar = new MyImage(R.drawable.greencircle, getResources());
+        myChar.setSize(200);
+        myChar.setRotation(0);
+        myChar.setTranslateY(100);
+        myChar.setTranslateX(100);
     }
     public void pause(){
         isRunning = false;
@@ -60,18 +64,9 @@ public class MySurfaceView extends SurfaceView implements  Runnable{
             Canvas canvas = surfaceHolder.lockCanvas();
             //drawing a background color for canvas
             canvas.drawColor(Color.BLUE);
-
-            Matrix matrix = new Matrix();
-            x++;
-            matrix.setTranslate(-myChar.getWidth()/2, -myChar.getHeight()/2); //translate to center
-            matrix.postScale(0.5f, 0.5f);
-            matrix.postRotate(30); //USING POST MEANS THAT THE ORDER IS CORRECT: this code rotates, then translates
-            matrix.postTranslate(x, canvas.getHeight()/2);
-            //matrix.postTranslate(canvas.getWidth()-myChar.getWidth()/2*0.5f, canvas.getHeight() - myChar.getHeight()/2 * 0.5f);
-            canvas.drawBitmap(myChar, matrix, null);
-            //
-
-
+            myChar.setRotation(myChar.getRotation()+2);
+            myChar.setTranslateX(myChar.getTranslateX()+3);
+            myChar.draw(canvas);
             surfaceHolder.unlockCanvasAndPost(canvas);
         }
 
